@@ -1,0 +1,15 @@
+{
+    "postalcodes": [
+        {
+            "adminCode1": "13",
+            "adminCode2": "",
+            "adminName1": "Tokyo",
+            "adminName2": "",
+            "countryCode": "JP",
+            "lat": 35.6762,
+            "lng": 139.7503,
+            "placeName": "Chiyoda",
+            "postalcode": "100-0001"
+        }
+    ]
+}

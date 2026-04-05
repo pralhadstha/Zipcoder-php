@@ -1,0 +1,19 @@
+{
+    "query": {
+        "codes": ["44600"],
+        "country": "NP"
+    },
+    "results": {
+        "44600": [
+            {
+                "postal_code": "44600",
+                "country_code": "NP",
+                "latitude": "27.6717",
+                "longitude": "85.4298",
+                "city": "Lalitpur",
+                "state": "Bagmati",
+                "province": "Central"
+            }
+        ]
+    }
+}

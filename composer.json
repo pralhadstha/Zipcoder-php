@@ -1,0 +1,36 @@
+{
+    "name": "pralhad/zipcoder",
+    "description": "PHP postal code to address lookup with multi-provider support and automatic fallback",
+    "type": "library",
+    "license": "MIT",
+    "keywords": ["postal-code", "zipcode", "address", "geocoding", "lookup"],
+    "require": {
+        "php": "^8.2",
+        "psr/http-client": "^1.0",
+        "psr/http-factory": "^1.0",
+        "psr/http-message": "^2.0",
+        "psr/simple-cache": "^3.0",
+        "psr/log": "^3.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11.0",
+        "phpstan/phpstan": "^2.0",
+        "laravel/pint": "^1.0",
+        "guzzlehttp/guzzle": "^7.0"
+    },
+    "suggest": {
+        "guzzlehttp/guzzle": "PSR-18 HTTP client — recommended for production (^7.0)"
+    },
+    "autoload": {
+        "psr-4": {
+            "Pralhad\\Zipcoder\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Pralhad\\Zipcoder\\Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}

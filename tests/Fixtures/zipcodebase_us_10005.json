@@ -1,0 +1,21 @@
+{
+    "query": {
+        "codes": ["10005"],
+        "country": "US"
+    },
+    "results": {
+        "10005": [
+            {
+                "postal_code": "10005",
+                "country_code": "US",
+                "latitude": "40.70630000",
+                "longitude": "-74.00890000",
+                "city": "New York City",
+                "state": "New York",
+                "state_code": "NY",
+                "province": "",
+                "province_code": ""
+            }
+        ]
+    }
+}
