@@ -1,5 +1,5 @@
 {
-    "name": "pralhad/zipcoder",
+    "name": "pralhad/zipcoder-php",
     "description": "PHP postal code to address lookup with multi-provider support and automatic fallback",
     "type": "library",
     "license": "MIT",
