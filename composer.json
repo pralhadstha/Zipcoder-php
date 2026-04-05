@@ -38,6 +38,12 @@
             "Pralhad\\Zipcoder\\Tests\\": "tests/"
         }
     },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "analyse": "vendor/bin/phpstan analyse",
+        "format": "vendor/bin/pint",
+        "check-style": "vendor/bin/pint --test"
+    },
     "minimum-stability": "stable",
     "prefer-stable": true
 }

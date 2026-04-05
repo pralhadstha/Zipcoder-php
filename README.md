@@ -7,6 +7,7 @@
 [![License](https://img.shields.io/packagist/l/pralhadstha/zipcoder-php.svg?style=flat-square)](LICENSE)
 [![Total Downloads](https://img.shields.io/packagist/dt/pralhadstha/zipcoder-php.svg?style=flat-square)](https://packagist.org/packages/pralhadstha/zipcoder-php)
 [![PHPStan Level 9](https://img.shields.io/badge/PHPStan-level%209-brightgreen.svg?style=flat-square)](https://phpstan.org/)
+[![Tests](https://img.shields.io/github/actions/workflow/status/pralhadstha/zipcoder-php/tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/pralhadstha/zipcoder-php/actions)
 
 ---
 
