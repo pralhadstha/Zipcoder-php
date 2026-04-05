@@ -2,10 +2,10 @@
 
 **A PHP library to convert postal codes and zip codes into structured addresses using multiple geocoding APIs with automatic fallback.**
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/pralhad/zipcoder-php.svg?style=flat-square)](https://packagist.org/packages/pralhad/zipcoder-php)
-[![PHP Version](https://img.shields.io/packagist/php-v/pralhad/zipcoder-php.svg?style=flat-square)](https://packagist.org/packages/pralhad/zipcoder-php)
-[![License](https://img.shields.io/packagist/l/pralhad/zipcoder-php.svg?style=flat-square)](LICENSE)
-[![Total Downloads](https://img.shields.io/packagist/dt/pralhad/zipcoder-php.svg?style=flat-square)](https://packagist.org/packages/pralhad/zipcoder-php)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/pralhadstha/zipcoder-php.svg?style=flat-square)](https://packagist.org/packages/pralhadstha/zipcoder-php)
+[![PHP Version](https://img.shields.io/packagist/php-v/pralhadstha/zipcoder-php.svg?style=flat-square)](https://packagist.org/packages/pralhadstha/zipcoder-php)
+[![License](https://img.shields.io/packagist/l/pralhadstha/zipcoder-php.svg?style=flat-square)](LICENSE)
+[![Total Downloads](https://img.shields.io/packagist/dt/pralhadstha/zipcoder-php.svg?style=flat-square)](https://packagist.org/packages/pralhadstha/zipcoder-php)
 [![PHPStan Level 9](https://img.shields.io/badge/PHPStan-level%209-brightgreen.svg?style=flat-square)](https://phpstan.org/)
 
 ---
@@ -46,13 +46,13 @@ Zipcoder turns any postal code into a normalized address — city, state, provin
 ## Installation
 
 ```bash
-composer require pralhad/zipcoder-php
+composer require pralhadstha/zipcoder-php
 ```
 
 For production, Guzzle is recommended as the HTTP client:
 
 ```bash
-composer require pralhad/zipcoder-php guzzlehttp/guzzle
+composer require pralhadstha/zipcoder-php guzzlehttp/guzzle
 ```
 
 ## Quick Start
@@ -466,18 +466,6 @@ vendor/bin/phpstan analyse
 # Format code
 vendor/bin/pint
 ```
-
-## Architecture
-
-Zipcoder is built on established design patterns:
-
-- **Strategy** — `Provider` interface allows swappable lookup implementations
-- **Chain of Responsibility** — `Chain` provider iterates providers with automatic fallback
-- **Decorator** — `Cache` wraps any provider transparently
-- **Adapter** — each provider normalizes its API's response format to a unified `Address`
-- **Value Objects** — `Query`, `Address`, and `AddressCollection` are immutable
-
-All classes use `declare(strict_types=1)` and PHP 8.2 `readonly` properties.
 
 ## Contributing
 
