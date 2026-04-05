@@ -45,6 +45,6 @@ final readonly class Query
      */
     public function normalizedPostalCode(): string
     {
-        return preg_replace('/[\s\-]/', '', $this->postalCode);
+        return preg_replace('/[\s\-]/', '', $this->postalCode) ?? $this->postalCode;
     }
 }

@@ -26,17 +26,17 @@ final readonly class Address
     public static function fromArray(array $data): self
     {
         return new self(
-            postalCode: (string) ($data['postalCode'] ?? ''),
-            countryCode: (string) ($data['countryCode'] ?? ''),
-            countryName: $data['countryName'] ?? null,
-            state: $data['state'] ?? null,
-            stateCode: $data['stateCode'] ?? null,
-            province: $data['province'] ?? null,
-            city: $data['city'] ?? null,
-            district: $data['district'] ?? null,
-            latitude: isset($data['latitude']) ? (float) $data['latitude'] : null,
-            longitude: isset($data['longitude']) ? (float) $data['longitude'] : null,
-            provider: (string) ($data['provider'] ?? ''),
+            postalCode: is_scalar($data['postalCode'] ?? null) ? (string) $data['postalCode'] : '',
+            countryCode: is_scalar($data['countryCode'] ?? null) ? (string) $data['countryCode'] : '',
+            countryName: isset($data['countryName']) && is_string($data['countryName']) ? $data['countryName'] : null,
+            state: isset($data['state']) && is_string($data['state']) ? $data['state'] : null,
+            stateCode: isset($data['stateCode']) && is_string($data['stateCode']) ? $data['stateCode'] : null,
+            province: isset($data['province']) && is_string($data['province']) ? $data['province'] : null,
+            city: isset($data['city']) && is_string($data['city']) ? $data['city'] : null,
+            district: isset($data['district']) && is_string($data['district']) ? $data['district'] : null,
+            latitude: is_numeric($data['latitude'] ?? null) ? (float) $data['latitude'] : null,
+            longitude: is_numeric($data['longitude'] ?? null) ? (float) $data['longitude'] : null,
+            provider: is_scalar($data['provider'] ?? null) ? (string) $data['provider'] : '',
         );
     }
 

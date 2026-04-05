@@ -34,29 +34,32 @@ final class Zipcodestack extends AbstractHttpProvider
 
         $results = $data['results'] ?? [];
 
-        if ($results === []) {
+        if (! is_array($results) || $results === []) {
             throw new NoResult("No results found for postal code '{$query->postalCode}' in {$query->countryCode}.");
         }
 
         $places = $results[$query->postalCode] ?? [];
 
-        if ($places === []) {
+        if (! is_array($places) || $places === []) {
             throw new NoResult("No results found for postal code '{$query->postalCode}' in {$query->countryCode}.");
         }
 
-        $addresses = array_map(
-            fn (array $item): Address => new Address(
-                postalCode: (string) ($item['postal_code'] ?? $query->postalCode),
-                countryCode: (string) ($item['country_code'] ?? $query->countryCode),
-                city: $item['city'] ?? null,
-                state: $item['state'] ?? null,
-                province: $item['province'] ?? null,
-                latitude: isset($item['latitude']) ? (float) $item['latitude'] : null,
-                longitude: isset($item['longitude']) ? (float) $item['longitude'] : null,
+        $addresses = [];
+        foreach ($places as $item) {
+            if (! is_array($item)) {
+                continue;
+            }
+            $addresses[] = new Address(
+                postalCode: is_scalar($item['postal_code'] ?? null) ? (string) $item['postal_code'] : $query->postalCode,
+                countryCode: is_scalar($item['country_code'] ?? null) ? (string) $item['country_code'] : $query->countryCode,
+                city: isset($item['city']) && is_string($item['city']) ? $item['city'] : null,
+                state: isset($item['state']) && is_string($item['state']) ? $item['state'] : null,
+                province: isset($item['province']) && is_string($item['province']) ? $item['province'] : null,
+                latitude: is_numeric($item['latitude'] ?? null) ? (float) $item['latitude'] : null,
+                longitude: is_numeric($item['longitude'] ?? null) ? (float) $item['longitude'] : null,
                 provider: $this->getName(),
-            ),
-            $places,
-        );
+            );
+        }
 
         return new AddressCollection($addresses);
     }

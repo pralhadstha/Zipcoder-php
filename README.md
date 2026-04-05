@@ -10,7 +10,7 @@
 
 ---
 
-Zipcoder turns any postal code into a normalized address — city, state, province, country, and coordinates — by querying postal code lookup APIs behind a unified interface. If one provider fails or has no data, the next one in the chain picks up automatically. No more vendor lock-in to a single zip code API.
+Zipcoder turns any postal code into a normalized address (city, state, province, country, and coordinates) by querying postal code lookup APIs behind a unified interface. If one provider fails or has no data, the next one in the chain picks up automatically. No more vendor lock-in to a single zip code API.
 
 **Use cases:** shipping & logistics address autofill, checkout form validation, postal code to city/state resolution, international address lookup, and geocoding from zip codes.
 
@@ -453,6 +453,14 @@ Zipcoder accepts any PSR-18 compatible HTTP client. The first constructor argume
 | Built-in curl | Included | `new CurlPsr18Client(timeout: 10)` |
 | Guzzle 7 | `composer require guzzlehttp/guzzle` | `new \GuzzleHttp\Client(['timeout' => 10])` |
 | Symfony HttpClient | `composer require symfony/http-client` | PSR-18 adapter |
+
+## Framework Integration
+
+If you are using a framework, check out our dedicated integration package:
+
+| Framework | Package | Stats |
+|-----------|---------|-------|
+| [Laravel](https://github.com/pralhadstha/Zipcoder-laravel) | `pralhadstha/zipcoder-laravel` | [![Latest Stable Version](https://img.shields.io/packagist/v/pralhadstha/zipcoder-laravel.svg?style=flat-square)](https://packagist.org/packages/pralhadstha/zipcoder-laravel) [![Total Downloads](https://img.shields.io/packagist/dt/pralhadstha/zipcoder-laravel.svg?style=flat-square)](https://packagist.org/packages/pralhadstha/zipcoder-laravel) |
 
 ## Testing
 

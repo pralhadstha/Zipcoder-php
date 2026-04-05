@@ -46,25 +46,32 @@ final class JpPostalCode extends AbstractHttpProvider
 
         $addressItems = $data['addresses'] ?? [];
 
-        if ($addressItems === []) {
+        if (! is_array($addressItems) || $addressItems === []) {
             throw new NoResult("No results found for postal code '{$query->postalCode}' in JP.");
         }
 
-        $postalCode = (string) ($data['postalCode'] ?? $code);
+        $postalCode = is_string($data['postalCode'] ?? null) ? $data['postalCode'] : $code;
+        $locale = $this->locale;
 
-        $addresses = array_map(
-            fn (array $item): Address => new Address(
+        $addresses = [];
+        foreach ($addressItems as $item) {
+            if (! is_array($item)) {
+                continue;
+            }
+            /** @var array<string, string> $localeData */
+            $localeData = is_array($item[$locale] ?? null) ? $item[$locale] : [];
+
+            $addresses[] = new Address(
                 postalCode: $postalCode,
                 countryCode: 'JP',
                 countryName: 'Japan',
-                state: $item[$this->locale]['prefecture'] ?? null,
-                stateCode: $item['prefectureCode'] ?? null,
-                city: $item[$this->locale]['address1'] ?? null,
-                district: $item[$this->locale]['address2'] ?? null,
+                state: $localeData['prefecture'] ?? null,
+                stateCode: isset($item['prefectureCode']) && is_string($item['prefectureCode']) ? $item['prefectureCode'] : null,
+                city: $localeData['address1'] ?? null,
+                district: $localeData['address2'] ?? null,
                 provider: $this->getName(),
-            ),
-            $addressItems,
-        );
+            );
+        }
 
         return new AddressCollection($addresses);
     }

@@ -95,7 +95,7 @@ final class SimpleRequest implements RequestInterface
     public function withHeader(string $name, $value): static
     {
         $clone = clone $this;
-        $clone->headers[strtolower($name)] = is_array($value) ? $value : [$value];
+        $clone->headers[strtolower($name)] = is_array($value) ? array_values($value) : [$value];
 
         return $clone;
     }
@@ -104,7 +104,7 @@ final class SimpleRequest implements RequestInterface
     {
         $clone = clone $this;
         $existing = $clone->headers[strtolower($name)] ?? [];
-        $clone->headers[strtolower($name)] = array_merge($existing, is_array($value) ? $value : [$value]);
+        $clone->headers[strtolower($name)] = array_values(array_merge($existing, is_array($value) ? $value : [$value]));
 
         return $clone;
     }

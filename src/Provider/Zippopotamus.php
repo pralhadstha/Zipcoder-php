@@ -31,28 +31,31 @@ final class Zippopotamus extends AbstractHttpProvider
 
         $places = $data['places'] ?? [];
 
-        if ($places === []) {
+        if (! is_array($places) || $places === []) {
             throw new NoResult("No results found for postal code '{$query->postalCode}' in {$query->countryCode}.");
         }
 
-        $postCode = (string) ($data['post code'] ?? $query->postalCode);
-        $countryCode = (string) ($data['country abbreviation'] ?? $query->countryCode);
-        $countryName = $data['country'] ?? null;
+        $postCode = is_string($data['post code'] ?? null) ? $data['post code'] : $query->postalCode;
+        $countryCode = is_string($data['country abbreviation'] ?? null) ? $data['country abbreviation'] : $query->countryCode;
+        $countryName = isset($data['country']) && is_string($data['country']) ? $data['country'] : null;
 
-        $addresses = array_map(
-            fn (array $place): Address => new Address(
+        $addresses = [];
+        foreach ($places as $place) {
+            if (! is_array($place)) {
+                continue;
+            }
+            $addresses[] = new Address(
                 postalCode: $postCode,
                 countryCode: $countryCode,
                 countryName: $countryName,
-                city: $place['place name'] ?? null,
-                state: $place['state'] ?? null,
-                stateCode: $place['state abbreviation'] ?? null,
-                latitude: isset($place['latitude']) ? (float) $place['latitude'] : null,
-                longitude: isset($place['longitude']) ? (float) $place['longitude'] : null,
+                city: isset($place['place name']) && is_string($place['place name']) ? $place['place name'] : null,
+                state: isset($place['state']) && is_string($place['state']) ? $place['state'] : null,
+                stateCode: isset($place['state abbreviation']) && is_string($place['state abbreviation']) ? $place['state abbreviation'] : null,
+                latitude: is_numeric($place['latitude'] ?? null) ? (float) $place['latitude'] : null,
+                longitude: is_numeric($place['longitude'] ?? null) ? (float) $place['longitude'] : null,
                 provider: $this->getName(),
-            ),
-            $places,
-        );
+            );
+        }
 
         return new AddressCollection($addresses);
     }

@@ -43,6 +43,7 @@ abstract class AbstractHttpProvider implements Provider
                 throw new HttpError("Invalid JSON response from {$this->getName()}");
             }
 
+            /** @var array<string, mixed> $decoded */
             return $decoded;
         } catch (ClientExceptionInterface $e) {
             throw new HttpError(

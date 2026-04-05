@@ -27,7 +27,7 @@ final class SimpleStream implements StreamInterface
         return null;
     }
 
-    public function getSize(): ?int
+    public function getSize(): int
     {
         return strlen($this->content);
     }

@@ -3,7 +3,14 @@
     "description": "PHP postal code to address lookup with multi-provider support and automatic fallback",
     "type": "library",
     "license": "MIT",
-    "keywords": ["postal-code", "zipcode", "address", "geocoding", "lookup"],
+    "homepage": "https://github.com/pralhadstha/zipcoder-php",
+    "keywords": ["postal-code", "zip-code", "zipcode", "address", "geocoding", "lookup", "psr-18", "php-geocoder", "postal-code-lookup", "geonames"],
+    "authors": [
+        {
+            "name": "Pralhad Kumar Shrestha",
+            "homepage": "https://github.com/pralhadstha"
+        }
+    ],
     "require": {
         "php": "^8.2",
         "psr/http-client": "^1.0",

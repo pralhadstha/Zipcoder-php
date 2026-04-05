@@ -22,6 +22,7 @@ final class CurlPsr18Client implements ClientInterface, RequestFactoryInterface
     {
         $ch = curl_init();
 
+        /** @phpstan-ignore argument.type */
         curl_setopt_array($ch, [
             CURLOPT_URL => (string) $request->getUri(),
             CURLOPT_RETURNTRANSFER => true,
