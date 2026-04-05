@@ -56,6 +56,15 @@ For production, Guzzle is recommended as the HTTP client:
 composer require pralhadstha/zipcoder-php guzzlehttp/guzzle
 ```
 
+## Framework Integration
+
+If you are using a framework, check out our dedicated integration package:
+
+| Framework | Package | Stats |
+|-----------|---------|-------|
+| [Laravel](https://github.com/pralhadstha/Zipcoder-laravel) | `pralhadstha/zipcoder-laravel` | [![Latest Stable Version](https://img.shields.io/packagist/v/pralhadstha/zipcoder-laravel.svg?style=flat-square)](https://packagist.org/packages/pralhadstha/zipcoder-laravel) [![Total Downloads](https://img.shields.io/packagist/dt/pralhadstha/zipcoder-laravel.svg?style=flat-square)](https://packagist.org/packages/pralhadstha/zipcoder-laravel) |
+
+
 ## Quick Start
 
 Look up a US zip code and get the city and state in 4 lines:
@@ -454,14 +463,6 @@ Zipcoder accepts any PSR-18 compatible HTTP client. The first constructor argume
 | Built-in curl | Included | `new CurlPsr18Client(timeout: 10)` |
 | Guzzle 7 | `composer require guzzlehttp/guzzle` | `new \GuzzleHttp\Client(['timeout' => 10])` |
 | Symfony HttpClient | `composer require symfony/http-client` | PSR-18 adapter |
-
-## Framework Integration
-
-If you are using a framework, check out our dedicated integration package:
-
-| Framework | Package | Stats |
-|-----------|---------|-------|
-| [Laravel](https://github.com/pralhadstha/Zipcoder-laravel) | `pralhadstha/zipcoder-laravel` | [![Latest Stable Version](https://img.shields.io/packagist/v/pralhadstha/zipcoder-laravel.svg?style=flat-square)](https://packagist.org/packages/pralhadstha/zipcoder-laravel) [![Total Downloads](https://img.shields.io/packagist/dt/pralhadstha/zipcoder-laravel.svg?style=flat-square)](https://packagist.org/packages/pralhadstha/zipcoder-laravel) |
 
 ## Testing
 
